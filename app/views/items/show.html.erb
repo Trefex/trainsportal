@@ -1,19 +1,26 @@
 <!--
 <p>
-  <%= image_tag @item.trainimage.url %> <br/>
-  <%= image_tag @item.trainimage.url(:medium) %> <br/>
-  <%= image_tag @item.trainimage.url(:thumb) %>
+  <%= image_tag @item.trainimage if @item.trainimage.attached? %> <br/>
+  <%= image_tag @item.trainimage_medium if @item.trainimage.attached? %> <br/>
+  <%= image_tag @item.trainimage_thumb if @item.trainimage.attached? %>
 </p> -->
 <div class="container-fluid">
   <!-- <h2>Editing article</h2> -->
   <br />
   <div class="col-md-3 col-lg-3">
-    <%= link_to image_tag(@item.trainimage.url(:medium), :class => "img-responsive"),
-                  @item.trainimage.url(:original),
-                  {"data-lightbox" => @item.trainimage.exists? ? @item.trainimage_file_name : "Default image",
-                    "data-title" => @item.title} %>
+    <% if @item.trainimage.attached? %>
+      <%= link_to image_tag(@item.trainimage_medium, class: "img-responsive"),
+                    url_for(@item.trainimage_original),
+                    {"data-lightbox" => @item.trainimage.filename.to_s,
+                      "data-title" => @item.title} %>
+    <% end %>
     <%= link_to 'Edit', edit_item_path(@item), :class => "btn btn-primary" %>
     <%= link_to 'Back', items_path, :class => "btn btn-primary" %>
+    <% if user_signed_in? %>
+      <%= button_to "Delete", item_path(@item), method: :delete,
+            class: "btn btn-danger",
+            data: { confirm: "Are you sure?" } %>
+    <% end %>
   </div>
   <div class="col-md-9">
     <div class="row">

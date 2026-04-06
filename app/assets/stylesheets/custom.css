@@ -18,3 +18,16 @@ h2 {
 .img-responsive {
   margin-bottom: 20px !important;
 }
+
+/* Sign-out button styled to look like a navbar link */
+.nav-signout {
+  background: none;
+  border: none;
+  padding: 15px;
+  color: #777;
+  cursor: pointer;
+  font-size: 14px;
+}
+.nav-signout:hover {
+  color: #333;
+}

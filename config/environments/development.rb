@@ -4,7 +4,7 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = false
+  config.enable_reloading = true
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -15,9 +15,6 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
@@ -39,8 +36,8 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # Provide path to Paperclip
-  Paperclip.options[:command_path] = "/usr/local/bin/"
-
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # ActiveStorage: use local disk in development
+  config.active_storage.service = :local
 end

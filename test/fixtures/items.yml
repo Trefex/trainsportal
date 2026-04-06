@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  text: MyText
+locomotive:
+  title: Steam Locomotive BR50
+  text: Classic German steam locomotive in HO scale
+  brand: Fleischmann
+  scale: HO
+  sn: BR50-001
+  inbox: true
 
-two:
-  title: MyString
-  text: MyText
+diesel:
+  title: Diesel Engine V200
+  text: Powerful diesel locomotive from the 1960s
+  brand: Marklin
+  scale: HO
+  sn: V200-042
+  inbox: false

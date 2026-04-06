@@ -3,8 +3,10 @@
   <br />
 
   <div class="col-md-3 col-lg-3">
-    <%= image_tag @item.trainimage.url(:medium), :class => "img-responsive" %>
-  <%= link_to 'Delete image', avatar_item_url, method: :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+    <% if @item.trainimage.attached? %>
+      <%= image_tag url_for(@item.trainimage_medium), class: "img-responsive" %>
+    <% end %>
+    <%= link_to 'Delete image', avatar_item_url, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
   </div>
   <div class="col-md-9">
     <%= render 'form' %>

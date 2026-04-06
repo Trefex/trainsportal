@@ -8,7 +8,7 @@
     add_column :items, :selldata, :datetime
 %>
 
-<%= form_for @item, :html => { :multipart => true } do |f| %>
+<%= form_with model: @item, html: { multipart: true } do |f| %>
 
   <% if @item.errors.any? %>
     <div id="error_explanation">

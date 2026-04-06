@@ -11,14 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootbox
 //= require lightbox
-//= require bootstrap-filestyle
+// require bootstrap-filestyle
 // require dropzone
 // require bootstrap-datepicker
 //= require bootstrap-datepicker/core

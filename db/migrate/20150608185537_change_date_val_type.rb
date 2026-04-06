@@ -1,4 +1,4 @@
-class ChangeDateValType < ActiveRecord::Migration
+class ChangeDateValType < ActiveRecord::Migration[4.2]
   def up
     change_column :items, :dateval_date, :date
   end
