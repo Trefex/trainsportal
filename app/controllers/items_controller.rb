@@ -72,15 +72,13 @@ class ItemsController < ApplicationController
 
   def avatar
     @item = Item.find(params[:id])
-    @item.trainimage = nil
-    @item.save
-
-    render 'edit'
-end
+    @item.trainimage.purge
+    redirect_to edit_item_path(@item)
+  end
 
   private
     def item_params
       params.require(:item).permit(:title, :text, :trainimage, :scale, :inbox, :sn, :brand, :sellprice, :selldate, :dateval_date, :dateval)
-  end
+    end
 
 end

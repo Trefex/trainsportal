@@ -25,10 +25,12 @@
   <% @items.each do |item| %>
     <tr>
       <td class="col-md-2">
-        <%= link_to image_tag(item.trainimage.url(:thumb)),
-                      item.trainimage.url(:original),
-                      {"data-lightbox" => item.trainimage.exists? ? item.trainimage_file_name : "Default image",
-                        "data-title" => item.title} %>
+        <% if item.trainimage.attached? %>
+          <%= link_to image_tag(item.trainimage_thumb),
+                        url_for(item.trainimage_original),
+                        {"data-lightbox" => item.trainimage.filename.to_s,
+                          "data-title" => item.title} %>
+        <% end %>
       </td>
       <td class="col-md-2"><%= item.title %></td>
       <td class="col-md-2"><%= item.sn %></td>
