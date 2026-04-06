@@ -31,7 +31,7 @@
 
 
         <% if user_signed_in? %>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn-link nav-signout" %></li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path, :method => :get %></li>
         <% end %>
