@@ -5,7 +5,7 @@ ruby '3.4.9'
 gem 'rails', '~> 8.1'
 
 # Database
-gem 'sqlite3', '~> 2.0'
+gem 'sqlite3', '~> 2.9'
 
 # Asset pipeline
 gem 'sprockets-rails'
